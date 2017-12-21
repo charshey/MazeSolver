@@ -5,14 +5,9 @@ import java.util.Stack;
 
 public class Maze
 {
-    int height;
-    int width;
-    ArrayList<ArrayList<GridSpace>> grid = new ArrayList<>();
-    int startX;
-    int startY;
-    int endX;
-    int endY;
-    Stack solution;
+    private int height, width, startX, startY, endX, endY;
+    private ArrayList<ArrayList<GridSpace>> grid = new ArrayList<>();
+    private Stack solution;
 
     public Maze(int h, int w){
         height = h;
@@ -24,7 +19,7 @@ public class Maze
         for(int row = 0; row < height; row++){
             ArrayList<GridSpace> newRow = new ArrayList<>();
             for(int col = 0; col < width; col++){
-                GridSpace space = new GridSpace(nums.get(index),row,col);
+                GridSpace space = new GridSpace(nums.get(index),col,row);
                 newRow.add(space);
                 if(space.start){
                     startX = col;
@@ -38,11 +33,10 @@ public class Maze
             }
             grid.add(newRow);
         }
-        this.getMaze();
         this.solveMaze();
     }
 
-    public void solveMaze() {
+    private void solveMaze() {
 
         int lives = 3;
         int X = startX;

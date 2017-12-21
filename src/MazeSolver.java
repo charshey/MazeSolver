@@ -19,6 +19,7 @@ public class MazeSolver {
 
                 Maze myMaze = new Maze(nums.get(0), nums.get(1));
                 myMaze.setMaze(nums);
+                myMaze.getMaze();
                 myMaze.getSolution();
             }
         }
